@@ -1,0 +1,30 @@
+{
+	"name": "Java",
+	"dockerComposeFile": "docker-compose.yaml",
+	"service": "devcontainer",
+	"workspaceFolder": "/workspace",
+	"shutdownAction": "stopCompose",
+
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "none",
+			"installMaven": "true",
+			"installGradle": "false"
+		},
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/robbert229/devcontainer-features/postgresql-client:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"vmware.vscode-boot-dev-pack",
+				"vscjava.vscode-spring-initializr",
+				"vmware.vscode-spring-boot",
+				"redhat.java"
+			]
+		}
+	},
+	"forwardPorts": [8080],
+	"postCreateCommand": "java -version"
+	// "remoteUser": "root"
+}
