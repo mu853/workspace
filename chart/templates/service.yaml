@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: {{ .Values.workspace.name }}
+  name: {{ .Values.workspace.name }}
+spec:
+  ports:
+  - name: code-server
+    port: {{ .Values.workspace.port }}
+    protocol: TCP
+    targetPort: {{ .Values.workspace.port }}
+  - name: app
+    port: {{ .Values.app.port }}
+    protocol: TCP
+    targetPort: {{ .Values.app.port }}
+  selector:
+    app: {{ .Values.workspace.name }}
+  type: LoadBalancer

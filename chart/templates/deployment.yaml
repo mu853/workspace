@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.workspace.name }}
+  labels:
+    app: {{ .Values.workspace.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.workspace.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.workspace.name }}
+    spec:
+      containers:
+      - image: "{{ .Values.workspace.image }}"
+        name: code-server
+        command:
+        - /usr/bin/code-server
+        - --port
+        - "{{ .Values.workspace.port }}"
+        - --bind-addr=0.0.0.0
+        - --cert=/certs/tls.crt
+        - --cert-key=/certs/tls.key
+        - /config
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        - name: tls
+          mountPath: /certs
+        env:
+        - name: PASSWORD
+          value: {{ .Values.workspace.password }}
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: {{ .Values.workspace.name }}-pvc
+      - name: tls
+        secret:
+          secretName: {{ .Values.workspace.name }}-tls

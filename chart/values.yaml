@@ -1,0 +1,11 @@
+workspace:
+  name: ws2
+  image: harbor.pso.org/library/code-server-java:latest
+  port: 8443
+  store:
+    storageClassName: default
+    size: 1G
+  password: VMware1!
+
+app:
+  port: 8080
