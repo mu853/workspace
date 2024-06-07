@@ -28,6 +28,6 @@ jobs:
       with:
         version: v3.8.1
     - name: Run chart-release
-      uses: helm/chart-release-action@v1.4.0
+      uses: helm/chart-releaser-action@v1.4.0
       env:
         CR_TOKEN: "${{ secrets.GTHUB_TOKEN }}"
