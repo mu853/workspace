@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.workspace.name }}
+  name: {{ .Release.Name }}
   labels:
-    app: {{ .Values.workspace.name }}
+    app: {{ .Release.Name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.workspace.name }}
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.workspace.name }}
+        app: {{ .Release.Name }}
     spec:
       containers:
       - image: "{{ .Values.workspace.image }}"
@@ -36,7 +36,7 @@ spec:
       volumes:
       - name: config
         persistentVolumeClaim:
-          claimName: {{ .Values.workspace.name }}-pvc
+          claimName: {{ .Release.Name }}-pvc
       - name: tls
         secret:
-          secretName: {{ .Values.workspace.name }}-tls
+          secretName: {{ .Release.Name }}-tls

@@ -1,5 +1,4 @@
 workspace:
-  name: ws2
   image: harbor.pso.org/library/code-server-java:latest
   port: 8443
   store:

@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: {{ .Values.workspace.name }}
-  name: {{ .Values.workspace.name }}
+    app: {{ .Release.Name }}
+  name: {{ .Release.Name }}
 spec:
   ports:
   - name: code-server
@@ -15,5 +15,5 @@ spec:
     protocol: TCP
     targetPort: {{ .Values.app.port }}
   selector:
-    app: {{ .Values.workspace.name }}
+    app: {{ .Release.Name }}
   type: LoadBalancer
