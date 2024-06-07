@@ -30,4 +30,4 @@ jobs:
     - name: Run chart-release
       uses: helm/chart-releaser-action@v1.4.0
       env:
-        CR_TOKEN: "${{ secrets.GTHUB_TOKEN }}"
+        CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
