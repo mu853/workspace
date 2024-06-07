@@ -33,6 +33,8 @@ spec:
         env:
         - name: PASSWORD
           value: {{ .Values.workspace.password }}
+        - name: GIT_CONFIG_GLOBAL
+          value: /config/.gitconfig
       volumes:
       - name: config
         persistentVolumeClaim:
