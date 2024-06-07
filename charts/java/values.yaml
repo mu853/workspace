@@ -7,7 +7,7 @@ workspace:
   password: VMware1!
 
 db:
-  image: harbor.pso.org/library/postgresql:latest
+  image: harbor.pso.org/library/postgres:latest
   user: postgres
   password: 'VMware1!'
   size: 100Mi
