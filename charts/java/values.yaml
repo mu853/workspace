@@ -6,5 +6,12 @@ workspace:
     size: 200Mi
   password: VMware1!
 
+db:
+  image: harbor.pso.org/library/postgresql:latest
+  user: postgres
+  password: 'VMware1!'
+  size: 100Mi
+  port: 5432
+
 app:
   port: 8080
