@@ -3,7 +3,7 @@ workspace:
   port: 8443
   store:
     storageClassName: default
-    size: 100Mi
+    size: 200Mi
   password: VMware1!
 
 app:
