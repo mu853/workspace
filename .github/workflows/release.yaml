@@ -6,7 +6,7 @@ on:
     - main
     - feature/chart
     paths:
-    - charts/**/*
+    - chart/**/*
     - .github/workflows/release.yaml
 
 jobs:
